@@ -49,7 +49,7 @@
     
     EKSKeyPair:
       Type: "AWS::EC2::KeyPair::KeyName"
-      Default: "my-eks-key"
+      Default: ${env:EKS_KEY_PAIR_NAME}
       Description: The name of Key Pair to etasblish connection with Worker Node.
     
     VpcBlock:
@@ -75,12 +75,12 @@
   
     AvailabilityZonePublicSubnet01:
       Type: CommaDelimitedList<AWS::EC2::AvailabilityZone::Name>
-      Default: eu-west-3a
+      Default: ${env:EKS_AWS_REGION}a
       Description: Availability Zone for the Public Subnet 01. 
 
     AvailabilityZonePublicSubnet02:
       Type: CommaDelimitedList<AWS::EC2::AvailabilityZone::Name>
-      Default: eu-west-3b
+      Default: ${env:EKS_AWS_REGION}b
       Description: Availability Zone for the Public Subnet 02.
   
   Metadata:
